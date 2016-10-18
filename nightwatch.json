@@ -29,7 +29,7 @@
         "silent": true,
         "screenshots": {
             "enabled": true,
-            "path": "tests/screenshots/examplede/"
+            "path": "tests/screenshots/"
         },
 		 "desiredCapabilities": {
             "browserName": "chrome",
