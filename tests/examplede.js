@@ -1,56 +1,140 @@
 module.exports = {
 
 
-	'Step 1: Login' : function (browser) {
-		var num =1;
-		browser
 
-			//.windowMaximize()
-			.url('https://deqa.channelauction.com/homes/')
-			.waitForElementVisible('body', 1000)
-			.click('#main-navbar li a.btn.btn-nav-outline')
-			.saveScreenshot('./tests/screenshots/login'+num+'.png')
-			.assert.containsText('body', 'Log In')
-			.setValue('input[id="userEmail"]', 'elopez@mahisoft.com')
-			.setValue('input[id="userPassword"]', '123456')
-			.saveScreenshot('./tests/screenshots/login'+(num+=1)+'.png')
-			.click('button[data-elm-id="btnLogin"]')
-			.waitForElementVisible('.mb-lg:nth-of-type(1)', 20000)
-			.pause(3000)
-			.saveScreenshot('./tests/screenshots/login'+(num+=1)+'.png')
-			.assert.containsText('.mb-lg', 'Hi there')
-		},
+    'Step 1: Login': function(browser) {
 
-	 'Step 2: Select option "Sell a home"' : function (browser) {
-			 var num =1;
-			 browser
-				 .click('ul.nav.navbar-nav.navbar-right li:nth-child(2) a.dropdown-title')
-				 .waitForElementVisible('ul.nav.navbar-nav.navbar-right li:nth-child(2) .dropdown-menu', 10000)
-				 .saveScreenshot('./tests/screenshots/sellahome'+(num)+'.png')
-				 .assert.containsText('ul.nav.navbar-nav.navbar-right li:nth-child(2) .dropdown-menu li:nth-child(1) a', 'List a Home')
-				 .click('ul.nav.navbar-nav.navbar-right li:nth-child(2) .dropdown-menu li:nth-child(1) a')
-				 .saveScreenshot('./tests/screenshots/sellahome'+(num+=1)+'.png')
-				 .waitForElementVisible('body', 2000)
-				 .assert.containsText('body', 'List a Home')
-				 .saveScreenshot('./tests/screenshots/sellahome'+(num+=1)+'.png')
-			 },
+        var data = browser.globals.variables;
+        var num = 1;
+        var option = 'Login';
+        var step = "1.- ";
+        var path = data.path + step + option;
 
-	 'Step 3: Fill List information' : function (browser) {
-			 var num =1;
-			 
-			 browser
-				.setValue('input[name="address"]', '9246 W Lone Cactus Dr, Peoria, AZ 85382')
-				.pause(2000)
-				.saveScreenshot('./tests/screenshots/listinfo'+(num)+'.png')
-				//.click('.input-group-btn .btn.btn-primary.locate-property-btn')
-				.click('button[btn-whirl="btn-whirl"]')
-				.waitForElementVisible('body', 2000)
-				.assert.containsText('body', 'Address')
-				.pause(2000)
-				.click('button[ng-click="caCtrl.createAsset()"]')		
-				.saveScreenshot('./tests/screenshots/listinfo'+(num+=1)+'.png')
-		
-	 }
+        browser
+            .windowMaximize()
+            .url('https://deqa.channelauction.com/homes/')
+            .waitForElementVisible('body', 1000)
+            //.saveScreenshot(path + num + data.ext)
+            .click('#main-navbar li a.btn.btn-nav-outline')
+            .waitForElementVisible('label[for="userEmail"]', 5000)
+            .assert.containsText('body', 'Log In')
+            //.saveScreenshot(path + (num = +1) + data.ext)
+            .setValue('input[id="userEmail"]', data.user)
+            .setValue('input[id="userPassword"]', data.password)
+            .click('button[data-elm-id="btnLogin"]')
+            .waitForElementVisible('li.dropdown', 20000)
+            .assert.containsText('.mb-lg', 'Hi there')
+            .pause(3000)
+
+
+    },
+
+    'Step 2: Select option "Sell a home"': function(browser) {
+
+        var data = browser.globals.variables;
+        var num = 1;
+        var option = 'Sellahome';
+        var step = "2.- ";
+        var img1 = data.path + step + option + num + data.ext;
+        var imgs = data.path + step + option + (num += 1) + data.ext;
+
+        browser
+            .click('.nav.navbar-nav.navbar-right li:nth-child(2) a.dropdown-title')
+            .pause(1000)
+            .waitForElementVisible('.container-fluid a[ui-sref="locate-property"]', 5000)
+            .verify.containsText('.container-fluid a[ui-sref="locate-property"]', 'List a Home')
+            .click('.nav.navbar-nav.navbar-right li:nth-child(2) a[ui-sref="locate-property"]')
+            .pause(2000)
+            //.saveScreenshot(img1)
+            .waitForElementVisible('div[ng-show="locatePropCtrl.showSearch"]', 5000)
+            .assert.containsText('div[ng-show="locatePropCtrl.showSearch"]', 'List a Home')
+            .pause(3000)
+
+        //.saveScreenshot(imgs)
+
+    },
+
+    'Step 3: Fill List information': function(browser) {
+
+        var data = browser.globals.variables;
+        var num = 1;
+        var option = 'Listinfo';
+        var step = "3.- ";
+        var img1 = data.path + step + option + num + data.ext;
+        var imgs = data.path + step + option + (num += 1) + data.ext;
+
+        browser
+            .setValue('input[name="address"]', data.dir)
+            .pause(4000)
+            .click('button[btn-whirl="btn-whirl"]')
+            .waitForElementVisible('.modal-header h1', 5000)
+            .assert.containsText('.modal-header h1', 'Address')
+            .click('button[ng-click="caCtrl.createAsset()"]')
+            .waitForElementVisible('.left-nav.mt', 5000)
+            //.verify.containsText('.listing-package h2', 'Listing Package')
+            //.click('a[ng-click="listingPackageCtrl.getStarted()"]')
+            //.waitForElementVisible('.intro-section', 5000)
+            .assert.containsText('.intro-section', 'Seller Info')
+            .pause(3000)
+
+
+
+    },
+
+
+
+    'Step 4: Fill Seller info': function(browser) {
+
+        var data = browser.globals.variables;
+        var num = 1;
+        var option = 'Sellerinfo';
+        var step = "4.- ";
+        var img1 = data.path + step + option + num + data.ext;
+        var imgs = data.path + step + option + (num += 1) + data.ext;
+
+        browser
+            .click('button[data-elm-id="btnOwner"]')
+            .waitForElementVisible('.form-section .section-title', 2000)
+            .click('button[data-elm-id="btnHaveAgentNo"]')
+            .click('button[data-elm-id="btnSave"]')
+            .waitForElementVisible('.property-info', 5000)
+            .assert.containsText('.property-info', 'Property Info')
+            .pause(3000)
+
+
+
+
+    }
+
+
+    /*,
+
+
+    'Step 5: Fill Property info' : function (browser) {
+
+        var data = browser.globals.variables;
+        var num =1;
+        var option='Propertyinfo';
+        var step = "5.- ";
+        var img1 = data.path + step + option + num + data.ext;
+        var imgs = data.path + step + option + (num += 1) + data.ext;
+                 
+        browser
+           .click('button[data-elm-id="btnAgent"]')
+           .waitForElementVisible('.form-section .section-title', 2000)
+           .saveScreenshot(img1)
+           .click('button[data-elm-id="btnHaveAgentNo"]')    
+           .saveScreenshot(imgs)
+           .click('data-elm-id="btnSave"  ')        
+           .saveScreenshot(imgs)
+           .waitForElementVisible('.property-info', 5000)
+           .assert.containsText('.property-info', 'Property Info')    
+           .saveScreenshot(imgs)
+
+          
+
+    }*/
+
 
 
 };
