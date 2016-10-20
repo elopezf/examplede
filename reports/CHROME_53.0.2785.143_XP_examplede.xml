@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
             failures="1"
-            tests="3">
+            tests="10">
 
   <testsuite name="examplede"
     errors="0" failures="1" hostname="" id="" package="examplede" skipped="0"
-    tests="3" time="62.54" timestamp="Tue, 18 Oct 2016 21:12:33 GMT">
+    tests="10" time="133.3" timestamp="Thu, 20 Oct 2016 21:06:51 GMT">
   
-    <testcase name="Step 1: Login" time="53.24" assertions="4">
+    <testcase name="Step 1: Login" time="43.78" assertions="5">
+
+    
 
     
 
@@ -18,7 +20,29 @@
     
     </testcase>
   
-    <testcase name="Step 2: Select option &quot;Sell a home&quot;" time="3.954" assertions="4">
+    <testcase name="Step 2: Select option &quot;Sell a home&quot;" time="1.985" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Step 3: Fill List information" time="17.17" assertions="5">
+
+    
+
+    
+
+    
+<system-out>[[ATTACHMENT|C:\Users\elopez\examplede\tests\screenshots\examplede\Step-3:-Fill-List-information_ERROR_Oct-20-2016-170753-GMT-0400-(Venezuela-Standard.png]]</system-out>
+    
+
+    
+    </testcase>
+  
+    <testcase name="Step 4: Fill Seller info" time="8.646" assertions="4">
 
     
 
@@ -29,9 +53,62 @@
     
     </testcase>
   
-    <testcase name="Step 3: Fill List information" time="5.341" assertions="2">
+    <testcase name="Step 5: Fill Property info" time="13.03" assertions="5">
 
-      <failure message="Testing if element &lt;body&gt; contains text: &quot;Address&quot;.">    at Object.module.exports.Step 3: Fill List information (C:\Users\elopez\examplede\tests\examplede.js:48:13)</failure>
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Step 6: Fill Amenities if they exist" time="4.623" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Step 7: Fill Property Descriptions" time="4.348" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Step 8: Fill Listing Terms" time="4.570" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Step 9: Add Photos" time="16.46" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Step 9: List Home" time="18.71" assertions="7">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+      <failure message="Testing if element &lt;div[ng-bind-html=&quot;toaster.html&quot;]&gt; contains text: &quot;Success&quot;.">    at Object.module.exports.Step 9: List Home (C:\Users\elopez\examplede\tests\examplede.js:280:21)</failure>
 
     
     </testcase>

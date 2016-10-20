@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Nightwatch HTML Report - Default Theme</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style type="text/css">body{
+  margin: 10px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
+}
+
+h2{
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+h3{
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.toggleSuccess, .toggleError{
+  margin-right: 10px;
+}
+
+.errmessages{
+  background-color: rgba(238, 64, 64, 0.43);
+  border: 1px solid rgba(235, 28, 28, 0.78);
+  padding: 5px;
+}
+
+.errmessages h2{
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+.errmessages .errors{
+  display: none;
+}
+
+.suites {
+  margin: 0 0 0 30px;
+}
+
+.package {
+  margin: 15px 0;
+}
+.package > .name {
+  cursor: pointer;
+}
+
+.suite {
+  margin: 15px 0;
+}
+
+.suite > .name {
+  cursor: pointer;
+}
+
+ul{
+  list-style: none;
+}
+
+.testcases {
+}
+
+.status{
+  display: inline-block;
+}
+
+.testcase .name {
+  display: inline-block;
+}
+
+.success{
+  color: rgb(56, 142, 56);
+}
+.testcase img{
+  max-width: 80%;
+}
+.package.error > .name{
+  color: rgb(178, 43, 43);
+}
+.suite.error > .name{
+  color: rgb(178, 43, 43);
+}
+
+.testcase.success .name{
+  color: rgb(56, 142, 56);
+}
+.testcase.error .status{
+  color: rgb(178, 43, 43);
+}
+    </style>
+    <script type="text/javascript">$(document).ready(function() {
+  $('.package>.name').click(function() {
+    $(this).siblings('.suites').slideToggle();
+  });
+
+  $('.suites, .errmessages, .testcases').hide();
+
+  $('.suite, .errmessages').click(function() {
+    var $elem = $(this);
+    $elem.children('.testcases, .errors').slideToggle();
+  });
+  $('.toggleSuccess').click(function() {
+    $('.package.success').slideToggle();
+  });
+  $('.toggleError').click(function() {
+    $('.package.error').slideToggle();
+  });
+});
+
+    </script>
+  </head>
+  <body>
+    <h1>Nightwatch Results</h1>
+    <div id="container"><a href="#" class="toggleSuccess">Show/Hide Successes</a>
+      <div class="package error">
+        <h2 class="name">&#10005; examplede</h2>
+        <div class="suites">
+          <div class="suite success">
+            <h3 class="name">Step 1: Login</h3>
+            <ul class="testcases">
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Element &lt;body&gt; was visible after 58 milliseconds.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Element &lt;label[for=&quot;userEmail&quot;]&gt; was visible after 602 milliseconds.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Testing if element &lt;body&gt; contains text: &quot;Log In&quot;.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Element &lt;li.dropdown&gt; was visible after 8790 milliseconds.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Testing if element &lt;.mb-lg&gt; contains text: &quot;Hi there&quot;.</div>
+              </li>
+            </ul>
+          </div>
+          <div class="suite success">
+            <h3 class="name">Step 2: Select option &quot;Sell a home&quot;</h3>
+            <ul class="testcases">
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Element &lt;.container-fluid a[ui-sref=&quot;locate-property&quot;]&gt; was visible after 31 milliseconds.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Testing if element &lt;.container-fluid a[ui-sref=&quot;locate-property&quot;]&gt; contains text: &quot;List a Home&quot;.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Element &lt;div[ng-show=&quot;locatePropCtrl.showSearch&quot;]&gt; was visible after 586 milliseconds.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Testing if element &lt;div[ng-show=&quot;locatePropCtrl.showSearch&quot;]&gt; contains text: &quot;List a Home&quot;.</div>
+              </li>
+            </ul>
+          </div>
+          <div class="suite success">
+            <h3 class="name">Step 3: Fill List information</h3>
+            <ul class="testcases">
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Element &lt;.modal-header h1&gt; was visible after 1642 milliseconds.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Element &lt;.main-header&gt; was visible after 2903 milliseconds.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Testing if element &lt;.main-header&gt; contains text: &quot;Completed&quot;.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">Element &lt;.left-nav.mt&gt; was visible after 43 milliseconds.</div>
+              </li>
+              <li class="testcase success">
+                <div class="status">&#10003;</div>
+                <div class="name">function (visible2) {
+                if (visible2) {
+                    browser.verify.containsText('.hero-card', 'TEN-X HOMES IS FREE TO USE')
+                    browser.click('a[ng-click=&quot;listingPackageCtrl.getStarted()&quot;]')
+                    browser.waitForElementVisible('.intro-section', 10000)
+                    browser.assert.containsText('.intro-section', 'Seller Info')
+                        // should include go to step 4
+                } else {
+                    browser.click('.container div a[ui-sref=&quot;list-a-home.sellers&quot;]')
+                    browser.waitForElementVisible('.intro-section h1', 10000)
+                }
+            }</div>
+              </li>
+            </ul>
+          </div>
+          <div class="suite error">
+            <h3 class="name">Step 4: Fill Seller info</h3>
+            <ul class="testcases">
+              <li class="testcase error">
+                <div class="status">&#10005;</div>
+                <div class="name">Testing if element &lt;.intro-section&gt; contains text: &quot;Seller Info&quot;. Element could not be located. Expected &quot;Seller Info&quot; but got: &quot;null&quot;</div>
+                <div class="screenshot"><img src="C:\Users\elopez\examplede\tests\screenshots\examplede\Step-4:-Fill-Seller-info_ERROR_Oct-20-2016-161844-GMT-0400-(Venezuela-Standard.png"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

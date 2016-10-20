@@ -30,7 +30,8 @@
                 "enabled": true,
                 "on_failure": true,
                 "on_error": true,
-                "path": "tests/screenshots/"
+                "path": "tests/screenshots/", 
+                "skip_testcases_on_fail":true
             },
             "desiredCapabilities": {
                 "browserName": "chrome",
