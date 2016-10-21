@@ -1,7 +1,7 @@
 var variables = {
     user: "elopez@mahisoft.com",
     password: "123456",
-    dir: '9237 W Lone Cactus Dr, Peoria, AZ 85382',
+    dir: '9236 W Lone Cactus Dr, Peoria, AZ 85382',
     path: './tests/screenshots/',
     ext: '.png',
     sqft: '2000',
@@ -18,7 +18,7 @@ var datetime = today.toLocaleString();
 datetime = datetime.replace(/:|\s/g, '');
 datetime = datetime.replace(/['/']/g, '');
 
-/*var HtmlReporter = require('nightwatch-html-reporter');
+/*var HtmlReporter = require('/bin/nightwatch-html-reporter');
 
 
 var reporter = new HtmlReporter({

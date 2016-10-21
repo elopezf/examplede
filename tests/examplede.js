@@ -68,7 +68,7 @@ module.exports = {
             .pause(7000)
             .saveScreenshot(path + num + data.ext)
             .click('button[btn-whirl="btn-whirl"]')
-            // In case the Address popup is displayed
+            // In case the Address popup is displayed. To be reviewed. verify.isVisible elementPresent
             .waitForElementVisible('.modal-header h1', 10000, false, function(visible) {
                 if (visible) {
                     browser.click('button[ng-click="caCtrl.createAsset()"]')
@@ -79,7 +79,9 @@ module.exports = {
             .assert.containsText('.main-header', 'Completed')
             .waitForElementVisible('.container', 10000)
             .saveScreenshot(path + (num += 1) + data.ext)
-            /*.verify.elementPresent('a[ng-click="listingPackageCtrl.getStarted()"]', false, function(visible2) {
+            /*
+            //To be reviewed
+             .verify.elementPresent('a[ng-click="listingPackageCtrl.getStarted()"]', false, function(visible2) {
                 if (visible2) {
                     browser.click('a[ng-click="listingPackageCtrl.getStarted()"]')
                         /// should include go to step 4
@@ -142,6 +144,8 @@ module.exports = {
             .click('select#completeBathrooms option[value="number:2"]')
 
             /* 
+
+            //To be reviewed
            .waitForElementVisible('label[for="completeBathrooms"] span.text-danger', 5000, false, function(visible) {
                  if (visible) {
                      browser.click('select[id="completeBathrooms"]')
@@ -265,6 +269,7 @@ module.exports = {
         var path = data.path + step + option;
 
         browser
+        //To be reviewed
             .waitForElementVisible('.toast', 20000)
             .assert.containsText('.toast', 'Success')
             .saveScreenshot(path + (num += 1) + data.ext)
