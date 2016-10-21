@@ -19,7 +19,7 @@ var datetime = today.toLocaleString();
 datetime = datetime.replace(/:|\s/g, '');
 datetime = datetime.replace(/['/']/g, '');
 
-var HtmlReporter = require('nightwatch-html-reporter');
+/*var HtmlReporter = require('nightwatch-html-reporter');
 
 
 var reporter = new HtmlReporter({
@@ -31,8 +31,9 @@ var reporter = new HtmlReporter({
 
 
 });
+*/
 
 module.exports = {
-    reporter: reporter.fn,
+  //  reporter: reporter.fn,
     variables: variables
 }
